@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 
 const { config } = require('./config/index');
+
 const moviesApi = require('./routes/movies');
+const userMoviesApi = require('./routes/userMovies');
 
 const {
   logErrors,
@@ -17,6 +19,7 @@ app.use(express.json());
 
 // Routes
 moviesApi(app);
+userMoviesApi(app);
 
 // Para capturar el error 404 se debe agregar el middleware apenas terminen las rutas
 app.use(notFoundHandler);
